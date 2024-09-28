@@ -1,0 +1,41 @@
+/*Author: Samia Rahman
+*Date: 21st September
+*Purpose: dollar rate conversion
+*Persons discussed w/:
+*References:
+*/
+#include <stdio.h>
+#include <stdlib.h>
+
+int main() {
+    int amount_of_cad;
+    printf("Enter CAD amount: ");
+    if (scanf("%d", &amount_of_cad) ==1) {
+        if (amount_of_cad >=0 && amount_of_cad < 100000 ){
+            float cad_rate = 0.75;
+            float amount_of_usd = (amount_of_cad*cad_rate);
+
+            
+            // Round to the nearest USD with 0.50 rounding up
+            int rounded_number = (int)(amount_of_usd + 0.5);
+
+            printf("Converted USD amount: $%d\n", rounded_number);
+
+            int bill_value[7] = {100, 50, 20, 10, 5, 2, 1};
+            int numBills[7] = {0};
+
+            for (int i = 0; i < 7; i++) {
+                numBills[i] = rounded_number / bill_value[i];
+                rounded_number %= bill_value[i];
+                printf("$%d bills: %d\n", bill_value[i], numBills[i]);
+            }
+
+            }
+
+            else {
+
+            }
+        return 0;
+    
+    }
+    }
